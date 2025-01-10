@@ -1,0 +1,34 @@
+ojciec(jan, anna).
+ojciec(jan, piotr).
+matka(maria, anna).
+matka(maria, piotr).
+mezczyzna(jan).
+mezczyzna(piotr).
+kobieta(maria).
+kobieta(anna).
+
+rodzic(X, Y) :- ojciec(X, Y).
+rodzic(X, Y) :- matka(X, Y).
+przodek(X, Y) :- rodzic(X, Y).
+brat(X, Y) :-
+    rodzic(Z, X),
+    rodzic(Z, Y),
+    X \= Y,
+    mezczyzna(X).
+siostra(X, Y) :-
+    rodzic(Z, X),
+    rodzic(Z, Y),
+    X \= Y,
+    kobieta(X).
+kuzyn(X, Y) :- dokończyć tych kuzynów
+
+Tu z przesiadkami trzeba zrobić, więc jakoś trochę inaczej niż mam.
+lotnisko(warszawa).
+lotnisko(krakow).
+lotnisko(gdansk).
+polaczenie(warszawa, krakow, 300).
+polaczenie(krakow, gdansk, 200).
+polaczenie(warszawa, gdansk, 500).
+
+polaczenie(X, Y) :- polaczenie(X, Y,_).
+koszt_podrozy(X, Y, Cena) :- polaczenie(X, Y, Cena).
